@@ -60,6 +60,12 @@ async function registerUser() {
       username: response.data.data.username,
       telephone: response.data.data.telephone,
     };
+
+    document.querySelector("#clientId").innerText =
+      targetUser.userId || "tanlanmagan";
+    document.querySelector("#userHeader").innerText = targetUser.username || "";
+
+    await renderUserOrder(targetUser.userId);
     return response.data;
   } else {
     alert(response.data.message);
